@@ -46,5 +46,5 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: IBMGarageLA/br-bb-turbonomic-argocd-pipeline
+          github_token: ${{ secrets.GIT_TOKEN }}
+          repository: igooruh/pipeline-argocd
