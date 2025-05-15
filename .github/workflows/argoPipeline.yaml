@@ -22,9 +22,6 @@ jobs:
           repository: ${{ secrets.DOCKER_USERNAME }}/gitops
           tags: ${{ github.sha }}, latest
 
-#      - name: Run chart-releaser
-#        uses: helm/chart-releaser-action@v1.7.0
-
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
         with:
@@ -46,5 +43,5 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: igooruh/pipeline-argocd
