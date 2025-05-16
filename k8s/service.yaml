@@ -7,4 +7,4 @@ spec:
     app: nodeserver
   ports:
     - port: 8080
-      targetPort: 8000
+      targetPort: 8080
