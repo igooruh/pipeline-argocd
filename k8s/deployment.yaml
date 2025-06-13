@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: nodeserver
   name: nodeserver
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: openshift-gitops
+      app: nodeserver
   template:
     metadata:
       labels:
-        app: openshift-gitops
+        app: nodeserver
     spec:
       containers:
         - name: nodeserver
@@ -26,3 +28,4 @@ spec:
               cpu: 500m
               memory: 25Mi
           restartPolicy: Always
+          schedulerName: default-scheduler
