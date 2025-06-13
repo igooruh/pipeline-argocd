@@ -28,4 +28,3 @@ spec:
               cpu: 500m
               memory: 25Mi
           restartPolicy: Always
-          schedulerName: default-scheduler
