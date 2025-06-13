@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodeserver
+      app: openshift-gitops
   template:
     metadata:
       labels:
-        app: nodeserver
+        app: openshift-gitops
     spec:
       containers:
         - name: nodeserver
