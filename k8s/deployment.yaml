@@ -28,3 +28,9 @@ spec:
               cpu: 500m
               memory: 25Mi
           restartPolicy: Always
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: docker-credentials
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
