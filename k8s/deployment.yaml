@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nodeserver
-          image: quay.io/ecotz/gitopsapp:latest
+          image: quay.io/ecotz/sampleapp:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
