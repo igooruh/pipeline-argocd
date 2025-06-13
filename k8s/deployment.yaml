@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nodeserver
-  name: nodeserver
+    app: gitops-multifile
+  name: gitops-multifile
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodeserver
+      app: gitops-multifile
   template:
     metadata:
       labels:
-        app: nodeserver
+        app: gitops-multifile
     spec:
       containers:
         - name: nodeserver

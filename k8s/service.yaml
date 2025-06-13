@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: nodeserver-service
   labels:
-    app: nodeserver
+    app: gitops-multifile
 spec:
   selector:
-    app: nodeserver
+    app: gitops-multifile
   ports:
     - port: 8080
       targetPort: 8080
