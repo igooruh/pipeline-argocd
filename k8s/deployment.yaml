@@ -15,7 +15,7 @@ spec:
         app: gitops-multifile
     spec:
       containers:
-        - name: nodeserver
+        - name: gitops-multifile
           image: quay.io/ecotz/sampleapp:latest
           imagePullPolicy: Always
           ports:
