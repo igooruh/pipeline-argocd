@@ -25,7 +25,7 @@ spec:
           name: application-simple-gitops
           resources:
             limits:
-              cpu: 50m
+              cpu: 200m
               memory: 28Mi
             requests:
               cpu: 50m
