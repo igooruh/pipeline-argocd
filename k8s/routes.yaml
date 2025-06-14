@@ -1,0 +1,31 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: 'true'
+  labels:
+    app: application-simple-gitops
+    app.kubernetes.io/instance: bb-gitops-turbonomic
+  name: application-gitops-route
+  namespace: openshift-image-registry
+spec:
+  host: >-
+    application-gitops-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: application-gitops-service
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+    - conditions:
+        - lastTransitionTime: '2025-06-14T17:50:09Z'
+          status: 'True'
+          type: Admitted
+      host: >-
+        application-gitops-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com
+      routerCanonicalHostname: router-default.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com
+      routerName: default
+      wildcardPolicy: None
