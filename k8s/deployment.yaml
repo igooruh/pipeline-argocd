@@ -5,7 +5,7 @@ metadata:
     app:  application-simple-gitops
   name: application-simple-gitops
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: application-simple-gitops
@@ -22,7 +22,7 @@ spec:
               value: "95"
           image: default-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops:latest
           imagePullPolicy: Always
-          name: application-simple-gitops-1
+          name: application-simple-gitops
           resources:
             limits:
               cpu: 50m
