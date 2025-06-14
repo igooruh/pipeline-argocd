@@ -35,7 +35,6 @@ spec:
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: docker-credentials
-      restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
