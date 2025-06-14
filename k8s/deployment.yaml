@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: gitops-multifile
-  name: gitops-multifile
+    app:  application-simple-gitops
+  name: application-simple-gitops
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gitops-multifile
+      app: application-simple-gitops
   template:
     metadata:
       labels:
-        app: gitops-multifile
+        app: application-simple-gitops
     spec:
       containers:
         - env:
@@ -22,7 +22,7 @@ spec:
               value: "95"
           image: default-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops:latest
           imagePullPolicy: Always
-          name: gitops-multifile-1
+          name: application-simple-gitops-1
           resources:
             limits:
               cpu: 50m

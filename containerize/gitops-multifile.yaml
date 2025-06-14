@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bb-gitops
-  namespace: openshift-gitops
+  name: bb-gitops-turbonomic
+  namespace: openshift-image-registry
 spec:
   destination:
-    namespace: argocd-test
+    namespace: application-simple-gitops
     server: https://kubernetes.default.svc
   project: default
   source:
