@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gitops-multifile
-          image: quay.io/ecotz/sampleapp:latest
+          image: default-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
