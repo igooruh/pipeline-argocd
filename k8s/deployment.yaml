@@ -34,7 +34,7 @@ spec:
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       imagePullSecrets:
-        - name: docker-credentials
+        - name: default-dockercfg-t9jl9
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
