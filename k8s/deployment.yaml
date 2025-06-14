@@ -5,7 +5,7 @@ metadata:
     app: gitops-multifile
   name: gitops-multifile
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: gitops-multifile
@@ -15,22 +15,27 @@ spec:
         app: gitops-multifile
     spec:
       containers:
-        - name: gitops-multifile
+        - env:
+            - name: RUN_TYPE
+              value: cpu
+            - name: CPU_PERCENT
+              value: "95"
           image: default-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops:latest
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+          name: gitops-multifile-1
           resources:
-            requests:
-              cpu: 100m
-              memory: 20Mi
             limits:
-              cpu: 500m
-              memory: 25Mi
-          restartPolicy: Always
+              cpu: 50m
+              memory: 28Mi
+            requests:
+              cpu: 50m
+              memory: 10Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       imagePullSecrets:
         - name: docker-credentials
       restartPolicy: Always
       schedulerName: default-scheduler
+      securityContext: {}
       terminationGracePeriodSeconds: 30
