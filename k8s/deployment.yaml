@@ -25,11 +25,11 @@ spec:
           name: application-simple-gitops
           resources:
             limits:
-              cpu: 7500m
-              memory: 15Gi
+              cpu: 10500m
+              memory: 50Gi
             requests:
-              cpu: 7500m
-              memory: 15Gi
+              cpu: 10500m
+              memory: 50Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
