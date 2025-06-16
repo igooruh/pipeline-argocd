@@ -8,4 +8,4 @@ resources:
 images:
 - name: nodeserver
   newName: /gitops
-  newTag: 2fe8f03555b4177f097a74219e2e8a553e40c582
+  newTag: 229880c49a431ae75fa8ff16534917ce4877604d
