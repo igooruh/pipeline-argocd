@@ -26,10 +26,10 @@ spec:
           resources:
             limits:
               cpu: 120m
-              memory: 15Gi
+              memory: 30Gi
             requests:
               cpu: 120m
-              memory: 15Gi
+              memory: 30Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
