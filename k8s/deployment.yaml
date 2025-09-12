@@ -1,9 +1,10 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  labels:
-    app:  application-simple-gitops
   name: application-simple-gitops
+  namespace: openshift-image-registry
+  labels:
+    app: application-simple-gitops
 spec:
   replicas: 3
   selector:
@@ -15,26 +16,37 @@ spec:
         app: application-simple-gitops
     spec:
       containers:
-        - env:
+        - name: application-simple-gitops
+          image: default-route-openshift-image-registry.apps.itz-vaz6gq.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
             - name: RUN_TYPE
               value: cpu
             - name: CPU_PERCENT
-              value: "95"
-          image: default-route-openshift-image-registry.apps.itz-00jsp6.infra01-lb.dal14.techzone.ibm.com/openshift-image-registry/application-simple-gitops:latest
-          imagePullPolicy: Always
-          name: application-simple-gitops
+              value: '95'
           resources:
             limits:
               cpu: 10m
               memory: 10Gi
             requests:
-              cpu: 10m
-              memory: 10Gi
+              cpu: 20m
+              memory: 20Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      imagePullSecrets:
-        - name: default-dockercfg-t9jl9
-      schedulerName: default-scheduler
-      securityContext: {}
+          imagePullPolicy: Always
+      restartPolicy: Always
       terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: external-registry-secret
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
