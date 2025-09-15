@@ -28,10 +28,10 @@ spec:
               value: '95'
           resources:
             limits:
-              cpu: 10m
+              cpu: 16000m
               memory: 62Gi
             requests:
-              cpu: 10m
+              cpu: 500m
               memory: 30Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
