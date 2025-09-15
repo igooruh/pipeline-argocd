@@ -28,11 +28,11 @@ spec:
               value: '95'
           resources:
             limits:
-              cpu: 3840m
+              cpu: 10m
               memory: 62Gi
             requests:
-              cpu: 3840m
-              memory: 20Gi
+              cpu: 10m
+              memory: 30Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
