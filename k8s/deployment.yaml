@@ -41,7 +41,7 @@ spec:
       dnsPolicy: ClusterFirst
       securityContext: {}
       imagePullSecrets:
-        - name: external-registry-secret
+        - name: deployer-dockercfg-pwtdb
       schedulerName: default-scheduler
   strategy:
     type: RollingUpdate
