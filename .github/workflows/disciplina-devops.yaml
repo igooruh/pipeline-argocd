@@ -2,10 +2,12 @@ name: Docker CI
 
 on:
   push:
-    branches: [ "develop" ]
+    branches:
+      - develop
 
 jobs:
   build:
+    name: Ubuntu image
     runs-on: ubuntu-latest
 
     steps:
@@ -20,10 +22,8 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build \
-          -t ${{ secrets.DOCKER_USERNAME }}/minha-app:v1 .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/minha-app:v1 .
 
       - name: Push Docker Image
         run: |
-          docker push \
-          ${{ secrets.DOCKER_USERNAME }}/minha-app:v1
+          docker push ${{ secrets.DOCKER_USERNAME }}/minha-app:v1
